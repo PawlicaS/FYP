@@ -14,6 +14,8 @@ To access the dataset, please visit the following link: [All the News Dataset](h
 
 ## Installation
 
+Ensure you have Python 3.11.
+
 Please install the modules found in the requirements.txt file to ensure the script runs without issues.
 
 ## Usage
