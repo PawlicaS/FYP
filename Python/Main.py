@@ -30,9 +30,6 @@ from transformers import TrainingArguments, Trainer, DistilBertForSequenceClassi
 # Ignore warnings
 warnings.filterwarnings("ignore")
 
-# Set logging verbosity to error
-logging.set_verbosity_error()
-
 # Default values for file, samples, algorithms, and batch size
 DEFAULT_FILE = "../Data/articles1.csv"
 DEFAULT_SAMPLES = 500
@@ -186,7 +183,7 @@ class CustomDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         item = {key: torch.tensor(val[idx]) for key, val in self.encodings.items()}
-        item['labels'] = torch.tensor(self.labels[idx])
+        item['labels'] = torch.tensor(self.labels[idx]).float()
         return item
 
     def __len__(self):
