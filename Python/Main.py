@@ -298,6 +298,8 @@ def multilayer_perceptron(x_train, x_test, y_train, y_test):
 
     et = time.time()  # End time
     tt = et - st  # Total time
+    print("-Finished\n"
+          f"Took {tt:.3f}s")
 
     # Return the model name and computed metrics
     return "Multilayer Perceptron", accuracy, recall, precision, f1
