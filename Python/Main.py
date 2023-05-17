@@ -376,7 +376,9 @@ def ensemble(x_train, x_test, y_train, y_test):
 def distilbert(data, min_samples, batch_size):
     print("=============================\n"
           "Running DistilBERT")
-    st = time.time()
+    st = time.time()  # Start time
+
+    # Data preprocessing
     df = data[['author', 'content']]
     df = df.dropna()
     df = df.groupby('author').filter(lambda x: len(x) >= min_samples)
@@ -396,20 +398,23 @@ def distilbert(data, min_samples, batch_size):
     test_ratio = 0.20
     validation_ratio = 0.10
 
+    # Split the data into train, validation, and test sets
     x_train, x_test, y_train, y_test = train_test_split(texts, labels, test_size=1 - train_ratio, random_state=42)
     x_val, x_test, y_val, y_test = train_test_split(x_test, y_test,
                                                     test_size=test_ratio / (test_ratio + validation_ratio))
 
+    # Tokenize the input text using DistilBERT tokenizer
     tokenizer = AutoTokenizer.from_pretrained('distilbert-base-uncased')
-
     train_encodings = tokenizer(x_train, truncation=True, padding=True)
     val_encodings = tokenizer(x_val, truncation=True, padding=True)
     test_encodings = tokenizer(x_test, truncation=True, padding=True)
 
+    # Create custom datasets
     train_dataset = CustomDataset(train_encodings, y_train)
     val_dataset = CustomDataset(val_encodings, y_val)
     test_dataset = CustomDataset(test_encodings, y_test)
 
+    # Set the training arguments for DistilBERT model
     args = TrainingArguments(
         output_dir='./bert-results',  # output directory
         num_train_epochs=3,  # total number of training epochs
@@ -421,6 +426,7 @@ def distilbert(data, min_samples, batch_size):
         logging_dir='./logs',
     )
 
+    # Create and train the DistilBERT model
     model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased", num_labels=labels_count)
     trainer = Trainer(
         model=model,
@@ -429,8 +435,9 @@ def distilbert(data, min_samples, batch_size):
         eval_dataset=val_dataset,
         compute_metrics=compute_metrics
     )
-
     trainer.train()
+
+    # Make predictions on the test dataset using the trained model
     pred = trainer.predict(test_dataset)
 
     et = time.time()  # End time
