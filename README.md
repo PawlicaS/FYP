@@ -1,4 +1,4 @@
-# Project Name
+# Identification of anonymous authors using textual analysis and machine learning
 
 This repository contains the code and resources for the "Identification of anonymous authors using textual analysis and machine learning" project. 
 
