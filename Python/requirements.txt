@@ -41,7 +41,6 @@ py4j==0.10.9.5
 pyarrow==11.0.0
 Pygments==2.14.0
 pyparsing==3.0.9
-pyspark==3.3.2
 python-dateutil==2.8.2
 pytz==2022.7.1
 PyYAML==6.0
@@ -55,9 +54,9 @@ stack-data==0.6.2
 sympy==1.11.1
 threadpoolctl==3.1.0
 tokenizers==0.13.2
-torch==2.0.0.dev20230228+cu118
-torchaudio==2.0.0.dev20230301+cu118
-torchvision==0.15.0.dev20230301+cu118
+torch==2.0.0
+torchaudio==2.0.0
+torchvision==0.15.0
 tqdm==4.65.0
 traitlets==5.9.0
 transformers==4.26.1
