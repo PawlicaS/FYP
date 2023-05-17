@@ -18,6 +18,7 @@ Please install the modules found in the requirements.txt file to ensure the scri
 
 ## Usage
 Please use the following arguments when running the script either from command line or a python IDE to change how the script runs to your liking.
+
 NOTE: If there are issues running the distilbert model, please change the batch_size argument to a lower value e.g., 4 or 8.
 
 --dataset IF LEFT BLANK = "../Data/articles1.csv". An optional string argument, pass the path to your dataset.
