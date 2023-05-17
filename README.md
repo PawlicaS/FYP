@@ -21,8 +21,11 @@ Please use the following arguments when running the script either from command l
 NOTE: If there are issues running the distilbert model, please change the batch_size argument to a lower value e.g., 4 or 8.
 
 --dataset IF LEFT BLANK = "../Data/articles1.csv". An optional string argument, pass the path to your dataset.
+
 --samples IF LEFT BLANK = 500. An optional integer argument, pass the minimum amount of samples for an author to be accounted for.
+
 --algorithms IF LEFT BLANK = "rf, xgb, mlp, lr, ensemble, distilbert". An optional string argument, pass any/all of these "rf", "xgb", "mlp", "lr", "ensemble", "distilbert".
+
 --batch_size' IF LEFT BLANK = 16. An optional integer argument, pass the batch size to be used for the distilbert model.
 
 
