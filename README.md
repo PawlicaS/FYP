@@ -16,6 +16,8 @@ To access the dataset, please visit the following link: [All the News Dataset](h
 
 Ensure you have Python 3.11.
 
+Please make sure you have downloaded the datasets provided above (specifically articles1.csv) and placed them in the "Data" folder of the project.
+
 Please install the modules found in the requirements.txt file to ensure the script runs without issues.
 
 ## Usage
